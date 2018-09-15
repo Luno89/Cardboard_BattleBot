@@ -5,11 +5,7 @@ import json
 import time
 
 leftPort = port.PG7
-<<<<<<< HEAD
 rightPort = port.PG6
-=======
-rightPort = port.PG8
->>>>>>> master
 
 @staticmethod
 def setMotorsClockWise():
@@ -52,8 +48,8 @@ class SimpleEcho(WebSocket):
             elif (speed == 0 & direction > 0):
                 gpio.output(leftPort, gpio.HIGH)
                 #gpio.output(rightPort, gpio.LOW)
-        except:
-            print("something bad happened")
+        except Exception as ex:
+            print("something bad happened : " + ex)
         # echo message back to client
         #self.sendMessage(self.data)
 
