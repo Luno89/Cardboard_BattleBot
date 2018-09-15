@@ -3,8 +3,8 @@ from pyA20.gpio import gpio
 from pyA20.gpio import port
 import json
 
-leftPort = port.PA7
-rightPort = port.PA8
+leftPort = port.PG7
+rightPort = port.PG8
 
 @staticmethod
 def setMotorsClockWise():
@@ -52,8 +52,8 @@ class SimpleEcho(WebSocket):
 
 
 gpio.init()
-gpio.setcfg(port.PA7, gpio.OUTPUT)
-gpio.setcfg(port.PA8, gpio.OUTPUT)
+gpio.setcfg(leftPort, gpio.OUTPUT)
+gpio.setcfg(rightPort, gpio.OUTPUT)
 
 server = SimpleWebSocketServer('', 8000, SimpleEcho)
 server.serveforever()
