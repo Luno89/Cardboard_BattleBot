@@ -48,8 +48,8 @@ class SimpleEcho(WebSocket):
             elif (speed == 0 & direction > 0):
                 gpio.output(leftPort, gpio.HIGH)
                 #gpio.output(rightPort, gpio.LOW)
-        except Exception as ex:
-            print("something bad happened : " + ex)
+        except :
+            print("something bad happened : " + sys.exc_info()[0])
         # echo message back to client
         #self.sendMessage(self.data)
 

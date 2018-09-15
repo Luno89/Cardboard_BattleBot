@@ -1,5 +1,6 @@
 from lomond import WebSocket
 from pynput import keyboard
+import json
 
 speed = 0
 direction = 0
@@ -37,7 +38,7 @@ def on_release(key):
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
     for event in websocket:
         if event.name == "ready":
-            text = input("Give me something: ")
+            text = "{\"direction\": 0, \"speed\": 0}"
             websocket.send_text(text)
             im_ready = True
         elif event.name == "poll":
@@ -45,7 +46,8 @@ with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
         elif event.name == "text":
             print(event.text)
         if im_ready == True:
-            websocket.send_text("{'direction':" + str(direction) + ",'speed':" + str(speed) + "}")
+            data = {'direction': direction, 'speed': speed}
+            websocket.send_text(json.dumps(data))
 
     listener.join()
 
