@@ -3,7 +3,7 @@ from pynput import keyboard
 
 speed = 0
 direction = 0
-websocket = WebSocket('ws://localhost:8000/')
+websocket = WebSocket('ws://192.168.0.126:8000/')
 
 im_ready = False
 
