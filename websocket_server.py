@@ -5,7 +5,11 @@ import json
 import time
 
 leftPort = port.PG7
+<<<<<<< HEAD
 rightPort = port.PG6
+=======
+rightPort = port.PG8
+>>>>>>> master
 
 @staticmethod
 def setMotorsClockWise():
